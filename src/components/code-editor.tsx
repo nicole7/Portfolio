@@ -1,6 +1,6 @@
 import MonacoEditor, { EditorDidMount } from '@monaco-editor/react';
 import React, { useRef } from 'react';
-import prettier, { format } from 'prettier';
+import prettier from 'prettier';
 import parser from 'prettier/parser-babel';
 import './code-editor.css';
 import codeShift from 'jscodeshift';

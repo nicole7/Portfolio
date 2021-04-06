@@ -5,35 +5,35 @@ import bundle from '../bundler';
 import Resizable from './resizable';
 
 const CodeCell = () => {
-    const [code, setCode] = useState('');
-    const [input, setInput] = useState('');
+  const [code, setCode] = useState('');
+  const [err, setErr] = useState('');
+  const [input, setInput] = useState('');
 
-    //as user inputs
-    useEffect(() => {
-        const timer = setTimeout(async () => {
-            const output = await bundle(input);
-            setCode(output);
-        }, 1000);
-        
-        return () => {
-            clearTimeout(timer);
-        };
-    }, [input]);
+  useEffect(() => {
+    const timer = setTimeout(async () => {
+      const output = await bundle(input);
+      setCode(output.code);
+      setErr(output.err);
+    }, 750);
 
-    //<pre> element helps format code
-    return (
-        <Resizable direction="vertical">
-            <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
-                <Resizable direction="horizontal">
-                    <CodeEditor
-                        initialValue=""
-                        onChange={(value) => setInput(value)}
-                    />
-                </Resizable>
-                <Preview code={code}/>
-                </div>
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input]);
+   
+  return (
+    <Resizable direction="vertical">
+      <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
+        <Resizable direction="horizontal">
+          <CodeEditor
+            initialValue="const a = 1;"
+            onChange={(value) => setInput(value)}
+          />
         </Resizable>
-    );
+        <Preview code={code} bundleStatus={err} />
+      </div>
+    </Resizable>
+  );
 };
 
 export default CodeCell;
