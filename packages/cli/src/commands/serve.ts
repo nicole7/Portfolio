@@ -3,6 +3,9 @@ import { serve } from 'local-api';
 import { PRIORITY_BELOW_NORMAL } from 'node:constants';
 import path from 'path';
 
+const isProduction = process.env.NOE_ENV === 'production';
+
+
 //square brackets indicate valie is optional and angled brackets are required
 export const serveCommand = new Command()
     .command('serve [filename]')
@@ -11,7 +14,7 @@ export const serveCommand = new Command()
     .action(async (filename = 'notebook.js', options: { port: string }) => {
         try {
             const dir = path.join(process.cwd(), path.dirname(filename))
-            await serve(parseInt(options.port), path.basename(filename), dir)
+            await serve(parseInt(options.port), path.basename(filename), dir, !isProduction)
             console.log(
                 `Opened ${filename}. Navigate to http://localhost:${options.port} to edit file`
             )
