@@ -1,6 +1,6 @@
 {
   "name": "@javascripter-ng/local-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "files": [
     "dist"
@@ -22,7 +22,7 @@
     "typescript": "^4.2.4"
   },
   "dependencies": {
-    "@javascripter-ng/local-client": "^1.0.0",
+    "@javascripter-ng/local-client": "^2.0.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "http-proxy-middleware": "^1.1.0"

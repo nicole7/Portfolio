@@ -1,6 +1,6 @@
 {
   "name": "jscript-cli",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "bin": "dist/index.js",
   "publishConfig": {
@@ -17,10 +17,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@javascripter-ng/local-client": "^1.0.0"
+    "@javascripter-ng/local-client": "^2.0.0"
   },
   "devDependencies": {
-    "@javascripter-ng/local-api": "^1.0.0",
+    "@javascripter-ng/local-api": "^2.0.0",
     "@types/node": "^14.14.37",
     "commander": "^7.2.0",
     "esbuild": "0.8.26",
