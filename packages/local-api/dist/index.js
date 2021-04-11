@@ -20,7 +20,7 @@ var serve = function (port, filename, dir, useProxy) {
     }
     else {
         //absolute path to get to html file - dont want everything, just up to the buil directory
-        var packagePath = require.resolve('local-client/build/index.html');
+        var packagePath = require.resolve('@javascripter-ng/local-client/build/index.html');
         app.use(express_1.default.static(path_1.default.dirname(packagePath)));
     }
     //bring express into async

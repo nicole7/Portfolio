@@ -16,7 +16,7 @@ export const serve = (port: number, filename: string, dir: string, useProxy: boo
     }))
     } else {
         //absolute path to get to html file - dont want everything, just up to the buil directory
-        const packagePath = require.resolve('local-client/build/index.html')
+        const packagePath = require.resolve('@javascripter-ng/local-client/build/index.html')
         app.use(express.static(path.dirname(packagePath)));
     }
 

@@ -1,6 +1,5 @@
 import { Command } from 'commander';
-import { serve } from 'local-api';
-import { PRIORITY_BELOW_NORMAL } from 'node:constants';
+import { serve } from '@javascripter-ng/local-api';
 import path from 'path';
 
 const isProduction = process.env.NOE_ENV === 'production';
